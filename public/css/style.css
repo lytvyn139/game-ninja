@@ -1,23 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @font-face {
-  font-family: 'zenzai_itacharegular';
-  src: url('zenzai-webfont.woff2') format('woff2'),
-       url('zenzai-webfont.woff') format('woff');
+  font-family: "zenzai_itacharegular";
+  src: url("zenzai-webfont.woff2") format("woff2"),
+    url("zenzai-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
-                
-
 
 html {
   box-sizing: border-box;
 }
 
 body {
-  background-image: url('/public/img/bg.png');
+  background-image: url("/public/img/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'zenzai_itacharegular';
+  font-family: "zenzai_itacharegular";
+}
+
+#ninja {
+  position: absolute;
+  top: 180px;
+  left: 920px;
+  background-image: url("/public/img/down1.png");
+  width: 59px;
+  height: 86px;
+}
+
+/* buttons */
+.btn,
+.info-modal {
+  width: 40px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+  color: black;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.info-modal {
+  margin-left: 10px;
+  padding: 1rem;
+  background-color: greenyellow;
+  text-align: center;
+}
+
+#plus-btn,
+#minus-btn {
+  background-color: #05aae2;
+}
+
+.btn:hover,
+.btn:hover,
+.info-modal:hover {
+  opacity: 1;
+}
+
+/* speed control section */
+.speed-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-controls-logo {
+  display: flex;
+  align-items: baseline;
 }
 
 .info-box {
@@ -32,69 +91,7 @@ body {
 .info-box p {
   color: white;
   padding: 0;
-  margin: 0.5em;  
-}
-
-/* buttons */
-.btn, 
-.info-modal {
-  width: 40px;
-  height: 20px;
-  display: inline-block;
-  text-align: center;
-  opacity: 0.6;
-  transition: 0.3s;
-  color: black;
-
-  font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-
-  outline: none;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-}
-
-
-.info-modal {
-  margin-left: 10px;
-  padding: 1rem;
-  background-color: greenyellow;
-  text-align: center;
-}
-
-
-#plus-btn, #minus-btn  {
-  background-color: #05aae2;
-}
-
-
-.btn:hover, 
-.btn:hover,
-.info-modal:hover {
-  opacity: 1;
-}
-
-.speed-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.speed-controls-logo {
-  display: flex;
-  align-items: baseline; 
-}
-
-#ninja {
-  position: absolute; 
-  top: 180px; 
-  left: 920px; 
-  background-image: url("/public/img/down1.png"); 
-  width: 59px; 
-  height: 86px;
+  margin: 0.5em;
 }
 
 /* POPUP */
@@ -110,13 +107,13 @@ body {
   animation: float-in 0.3s ease-out forwards;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
 }
 
 .modal h2 {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
@@ -146,3 +143,26 @@ body {
   pointer-events: all;
 }
 
+/* media queries */
+@media (max-width: 1250px) {
+  body {
+    background-image: url("/public/img/bg_1024.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 850px) {
+  body {
+    background-image: url("/public/img/sorry.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .info-box {
+    display: none;
+  }
+
+  #ninja {
+    display: none;
+  }
+}

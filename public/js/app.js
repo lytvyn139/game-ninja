@@ -1,20 +1,7 @@
-//q + f to speed change
-//make box for controls
-
-//media query
-//add readme.md added dojo logo need live server //instructions background shout screenshot
-//html ver
-//format
-//htmk logic
-
-//speed control
-//proper teleport
-
+const hero = document.getElementById("ninja");
 const backdropElement = document.getElementById("backdrop");
 const modalLinkElements = document.querySelectorAll(".info-modal");
-let infoModal;
-
-const hero = document.getElementById("ninja");
+let infoModal = null;
 let animationFrame = 1;
 let leftValue = 920;
 let topValue = 180;
@@ -26,11 +13,7 @@ function teleportModule() {
   const teleportSound = document.getElementById("teleport-mp3");
   teleportSound.play();
   hero.style.backgroundImage = "url('/public/img/teleport.png')";
-  console.log(
-    "%c TELEPORTING TO:",
-    "color: blue; font-weight: bold",
-    `${randomLeft}px/${randomTop}px`
-  );
+  console.log("%c TELEPORTING TO:", "color: blue; font-weight: bold",`${randomLeft}px/${randomTop}px`);
   hero.style.left = randomLeft + "px";
   hero.style.top = randomTop + "px";
   leftValue = randomLeft;
@@ -64,7 +47,7 @@ function mainLogic() {
     const rightMoveKey = event.keyCode === 39 || event.keyCode === 68;
     const downMoveKey = event.keyCode === 40 || event.keyCode === 83;
     const upMoveKey = event.keyCode === 38 || event.keyCode === 87;
-    const teleportKey = event.keyCode === 82;
+    const teleportKey = event.keyCode === 82; //R
 
     if (animationFrame == 1) {
       animationFrame = 2;
@@ -99,6 +82,8 @@ function mainLogic() {
       hero.style.top = topValue + "px";
       hero.style.backgroundImage =
         "url('/public/img/down" + animationFrame + ".png')";
+
+      //teleport
     } else if (teleportKey) {
       setTimeout(function () {
         teleportModule();
@@ -122,7 +107,6 @@ function instructionsMenu() {
   `;
     document.body.appendChild(infoModal);
   }
-
   function hideInfoModal() {
     toggleBackdrop();
     document.body.removeChild(infoModal);
@@ -130,10 +114,8 @@ function instructionsMenu() {
   for (const linkElement of modalLinkElements) {
     linkElement.addEventListener("click", presentInfoModal);
   }
-
   backdropElement.addEventListener("click", hideInfoModal);
 }
-
 
 function init() {
   console.log("%c GAME STARTED 🤖", "color: darkgreen; font-weight: bold");
