@@ -5,7 +5,7 @@ let infoModal = null;
 let animationFrame = 1;
 let leftValue = 920;
 let topValue = 180;
-let speed = 5;
+let speed = 10;
 
 function teleportModule() {
   let randomTop = Math.floor(Math.random() * (window.innerHeight - 100));
@@ -24,7 +24,7 @@ function speedModule() {
   document.getElementById(
     "stats"
   ).innerHTML = `${window.innerWidth}px/${window.innerHeight}px`;
-  document.getElementById("speed-info").innerHTML = `speed: 05`;
+  document.getElementById("speed-info").innerHTML = `speed: 10`;
   const increaseSpeed = document.getElementById("plus-btn");
   const decreaseSpeed = document.getElementById("minus-btn");
   increaseSpeed.addEventListener("click", (event) => {
@@ -35,6 +35,9 @@ function speedModule() {
   decreaseSpeed.addEventListener("click", (event) => {
     speed -= 5;
     document.getElementById("speed-info").innerHTML = `speed: ${speed}`;
+    if (speed = 5) {
+      speed = 5;
+    }
   });
 }
 
