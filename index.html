@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ninja game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="./public/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./public/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>ninja game </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='icon' href='./public/img/favicon.ico' type='image/x-icon'>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
-    
+  <body>
+    <audio id="teleport-mp3">
+      <source src="./public/mp3/teleport.mp3 " type="audio/mpeg" />
+    </audio>
 
-</head>
+    <div id="ninja"></div>
 
-<body>
-      
-        <div id='character'></div>
+    <div class="info-box">
+      <div class="speed-controls">
+        <p id="speed-info"></p>
+        <button class="btn" id="minus-btn">-</button>
+        <button class="btn" id="plus-btn">+</button>
+        </div>
+      <p id="stats">stats</p>
 
-    <script src="./public/js/app.js" ></script>
+      <div class="speed-controls-logo">
+        <h1>DOJO</h1>
+        <div id="backdrop"></div>
+        
+          <p>
+            <a href="#" data-text="
+                  move ⬆️/W <br>
+                  move ➡️/D <br>
+                  move ⬇️/S <br>
+                  move ⬅️/A <br>
+                  increase speed 🐆  = E <br>
+                  decrease speed 🐌  = Q <br>
+                  cast teleport 💥 = R <br>
+                  "
+              class="info-modal">help</a>
+          </p>
+        
+      </div>
+    </div>
 
-
-</body>
+    <script src="./public/js/app.js"></script>
+  </body>
 </html>

@@ -1,11 +1,18 @@
-//proper teleport
+//q + f to speed change
+//make box for controls
+
 //media query
-//add readme.md added dojo logo
+//add readme.md added dojo logo need live server //instructions background shout screenshot
 //html ver
 //format
 //htmk logic
 
 //speed control
+//proper teleport
+
+const backdropElement = document.getElementById("backdrop");
+const modalLinkElements = document.querySelectorAll(".info-modal");
+let infoModal;
 
 const hero = document.getElementById("ninja");
 let animationFrame = 1;
@@ -26,21 +33,17 @@ function teleportModule() {
   );
   hero.style.left = randomLeft + "px";
   hero.style.top = randomTop + "px";
-  randomLeft = randomLeft;
-  randomTop = randomTop;
-
+  leftValue = randomLeft;
+  topValue = randomTop;
 }
-
-
-
 
 function speedModule() {
   document.getElementById(
     "stats"
   ).innerHTML = `${window.innerWidth}px/${window.innerHeight}px`;
   document.getElementById("speed-info").innerHTML = `speed: 05`;
-  const increaseSpeed = document.getElementById("+");
-  const decreaseSpeed = document.getElementById("-");
+  const increaseSpeed = document.getElementById("plus-btn");
+  const decreaseSpeed = document.getElementById("minus-btn");
   increaseSpeed.addEventListener("click", (event) => {
     speed += 5;
     document.getElementById("speed-info").innerHTML = `speed: ${speed}`;
@@ -103,9 +106,39 @@ function mainLogic() {
     }
   };
 }
+
+function instructionsMenu() {
+  function toggleBackdrop() {
+    backdropElement.classList.toggle("visible");
+  }
+  function presentInfoModal(event) {
+    const text = event.target.dataset.text;
+    toggleBackdrop();
+    infoModal = document.createElement("div");
+    infoModal.classList.add("modal");
+    infoModal.innerHTML = `
+    <h2>🥋 CONTROLS 🥋</h2>
+    <p>${text}</p>
+  `;
+    document.body.appendChild(infoModal);
+  }
+
+  function hideInfoModal() {
+    toggleBackdrop();
+    document.body.removeChild(infoModal);
+  }
+  for (const linkElement of modalLinkElements) {
+    linkElement.addEventListener("click", presentInfoModal);
+  }
+
+  backdropElement.addEventListener("click", hideInfoModal);
+}
+
+
 function init() {
   console.log("%c GAME STARTED 🤖", "color: darkgreen; font-weight: bold");
   speedModule();
+  instructionsMenu();
   mainLogic();
 }
 
