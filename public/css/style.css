@@ -1,35 +1,72 @@
+@font-face {
+  font-family: 'zenzai_itacharegular';
+  src: url('zenzai-webfont.woff2') format('woff2'),
+       url('zenzai-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+                
 html {
   box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-  padding: 0px;
-  margin: 0px;
 }
 
 body {
   background-image: url('/public/img/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Roboto', sans-serif;
- 
-  /* width: 900px; 
-  height: 750px;  */
+  font-family: 'zenzai_itacharegular';
 }
- 
 
 
-h1 {
-  color: darkgreen;
+button {
+  width: 40px;
+  height: 20px;
+  background-color: #05aae2;
+  border: none;
+  color: black;
+  font-weight: bold;
+  text-align: center;
 
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
 }
-#character {
+
+
+
+button:hover {opacity: 1}
+
+.info-box {
+  font-size: 2rem;
+  color: #05aae2;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+}
+
+.info-box p {
+  color: white;
+  padding: 0;
+  margin: 0.5em;  
+}
+
+.speed-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ninja {
+  
   position: absolute; 
-  top: 150px; 
-  left: 450px; 
+  top: 180px; 
+  left: 920px; 
   background-image: url("/public/img/down1.png"); 
   width: 59px; 
   height: 86px;
 }
+
+
