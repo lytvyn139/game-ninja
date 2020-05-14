@@ -1,18 +1,17 @@
 const hero = document.getElementById("ninja");
-const backdropElement = document.getElementById("backdrop");
-const modalLinkElements = document.querySelectorAll(".info-modal");
-let infoModal = null;
-let animationFrame = 1;
 let leftValue = 920;
 let topValue = 180;
 let speed = 10;
 let bullets = [];
 
-function instructionsModule() {
-  function toggleBackdrop() {
+const instructionsModule = () => {
+  const backdropElement = document.getElementById("backdrop");
+  const modalLinkElements = document.querySelectorAll(".info-modal");
+  let infoModal = null;
+  const toggleBackdrop = () => {
     backdropElement.classList.toggle("visible");
   }
-  function presentInfoModal(event) {
+  const presentInfoModal = (event) => {
     const text = event.target.dataset.text;
     toggleBackdrop();
     infoModal = document.createElement("div");
@@ -23,7 +22,7 @@ function instructionsModule() {
   `;
     document.body.appendChild(infoModal);
   }
-  function hideInfoModal() {
+  const hideInfoModal = () => {
     toggleBackdrop();
     document.body.removeChild(infoModal);
   }
@@ -33,7 +32,7 @@ function instructionsModule() {
   backdropElement.addEventListener("click", hideInfoModal);
 }
 
-function teleportModule() {
+const teleportModule = () => {
   let randomTop = Math.floor(Math.random() * (window.innerHeight - 100));
   let randomLeft = Math.floor(Math.random() * (window.innerWidth - 100));
   const teleportSound = document.getElementById("teleport-mp3");
@@ -46,7 +45,7 @@ function teleportModule() {
   topValue = randomTop;
 }
 
-function shootWhateverModule() {
+const shootWhateverModule = () => {
   content = "";
   for (let i = 0; i < bullets.length; i++) {
     content += "<div class='bullet' style='left:" + bullets[i].left + "px; top: " + bullets[i].top + "px'></div>"; 
@@ -59,7 +58,7 @@ function shootWhateverModule() {
   document.getElementById("bullets").innerHTML = content;
 }
 
-function speedModule() {
+const speedModule = () => {
   document.getElementById("stats").innerHTML = `${window.innerWidth}px/${window.innerHeight}px`;
   document.getElementById("speed-info").innerHTML = `speed: 10`;
   const increaseSpeed = document.getElementById("plus-btn");
@@ -78,19 +77,20 @@ function speedModule() {
   });
 }
 
-function mainLogic() {
+const mainLogic = () => {
+  let animationFrame = 1;
   const maintheme = document.getElementById("maintheme-mp3");
   maintheme.play();
-  document.onkeydown = function (event) {
+  document.onkeydown = (event) => {
     //debug
-    //console.log("%c Event log:", "color: darkgreen; font-weight: bold", event);
+    console.log("%c Event log:", "color: darkgreen; font-weight: bold", event);
     const leftMoveKey = event.keyCode === 37 || event.keyCode === 65;
     const rightMoveKey = event.keyCode === 39 || event.keyCode === 68;
     const downMoveKey = event.keyCode === 40 || event.keyCode === 83;
     const upMoveKey = event.keyCode === 38 || event.keyCode === 87;
     const teleportKey = event.keyCode === 82; //R
     const fireKey = event.keyCode === 69 || event.keyCode === 32; //E, space
-
+   
     if (animationFrame == 1) {
       animationFrame = 2;
     } else if (animationFrame == 2) {
@@ -129,10 +129,9 @@ function mainLogic() {
     } else if (teleportKey) {
       setTimeout(function () {
         teleportModule();
-      }, 1000);
-
-    
-     //shurikens
+      }, 1000); //  setTimeout(() => (teleportModule(), 4000)); didn't work
+     
+     //shot with what ever
     } else if (fireKey) {
         console.log(`player poss: ${leftValue}, ${topValue}` )
         //will shot from arm
@@ -145,9 +144,7 @@ function mainLogic() {
   };
 }
 
-
-
-function init() {
+const init = () => {
   console.log("%c GAME STARTED 🤖", "color: darkgreen; font-weight: bold");
   speedModule();
   instructionsModule();

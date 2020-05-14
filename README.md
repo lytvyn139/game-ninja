@@ -1,5 +1,7 @@
 #  Ninja game
-Coding DOJO bootcamp project, 2d platformer game
+Coding DOJO bootcamp project, 2d platformer game.
+The game was deployed with surge, I don't know how long it's gonna stay there.
+http://illegal-harbor.surge.sh/#
 
 ## Getting Started
 To run this game you need to start it with live server. Move your ninja across your browser screen, explore the world, change his speed, cast teleport spell, shoot-shit.
@@ -29,6 +31,8 @@ To run this game you need to start it with live server. Move your ninja across y
 * 2560pxx850px
 * 1920pxx950px
 * 1440pxx850px
+
+
 
 ## Author
 
