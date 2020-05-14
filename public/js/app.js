@@ -79,7 +79,8 @@ function speedModule() {
 }
 
 function mainLogic() {
-
+  const maintheme = document.getElementById("maintheme-mp3");
+  maintheme.play();
   document.onkeydown = function (event) {
     //debug
     //console.log("%c Event log:", "color: darkgreen; font-weight: bold", event);
