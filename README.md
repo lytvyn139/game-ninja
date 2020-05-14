@@ -2,7 +2,7 @@
 Coding DOJO bootcamp project, 2d platformer game
 
 ## Getting Started
-To run this game you need to start it with live server. You can move ninja across your browser screen, change his speed, and even can even cast teleport spell.
+To run this game you need to start it with live server. Move your ninja across your browser screen, explore the world, change his speed, cast teleport spell, shoot-shit.
 
 ## Controls
 * move ⬆️/W 
@@ -12,6 +12,7 @@ To run this game you need to start it with live server. You can move ninja acros
 * increase speed 🐆 = click on + 
 * decrease speed 🐌 = click on - 
 * cast teleport 💥 = R 
+* will shoot 💩/⭐ (depends on build) = E/Space 
 
 ## Features added
 * added controls to W,D,S,A.
@@ -32,6 +33,9 @@ To run this game you need to start it with live server. You can move ninja acros
 ## Author
 
 * **IURII LYTVYN** 
+
+## Music 
+sawsquarenoise [Towel Defence OST]
 
 ## License
 

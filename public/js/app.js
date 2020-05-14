@@ -6,6 +6,32 @@ let animationFrame = 1;
 let leftValue = 920;
 let topValue = 180;
 let speed = 10;
+let bullets = [];
+
+function instructionsModule() {
+  function toggleBackdrop() {
+    backdropElement.classList.toggle("visible");
+  }
+  function presentInfoModal(event) {
+    const text = event.target.dataset.text;
+    toggleBackdrop();
+    infoModal = document.createElement("div");
+    infoModal.classList.add("modal");
+    infoModal.innerHTML = `
+    <h2>🥋 CONTROLS 🥋</h2>
+    <p>${text}</p>
+  `;
+    document.body.appendChild(infoModal);
+  }
+  function hideInfoModal() {
+    toggleBackdrop();
+    document.body.removeChild(infoModal);
+  }
+  for (const linkElement of modalLinkElements) {
+    linkElement.addEventListener("click", presentInfoModal);
+  }
+  backdropElement.addEventListener("click", hideInfoModal);
+}
 
 function teleportModule() {
   let randomTop = Math.floor(Math.random() * (window.innerHeight - 100));
@@ -20,10 +46,21 @@ function teleportModule() {
   topValue = randomTop;
 }
 
+function shootWhateverModule() {
+  content = "";
+  for (let i = 0; i < bullets.length; i++) {
+    content += "<div class='bullet' style='left:" + bullets[i].left + "px; top: " + bullets[i].top + "px'></div>"; 
+  }
+  
+  /* will shoot something up, uncomment on bottom //setTimeout(init, 100); but the speed menu and instructions will be not available   
+  for (let j = 0; j < bullets.length; j++) {
+    bullets[j].top = bullets[j].top - 20;
+  } */
+  document.getElementById("bullets").innerHTML = content;
+}
+
 function speedModule() {
-  document.getElementById(
-    "stats"
-  ).innerHTML = `${window.innerWidth}px/${window.innerHeight}px`;
+  document.getElementById("stats").innerHTML = `${window.innerWidth}px/${window.innerHeight}px`;
   document.getElementById("speed-info").innerHTML = `speed: 10`;
   const increaseSpeed = document.getElementById("plus-btn");
   const decreaseSpeed = document.getElementById("minus-btn");
@@ -42,15 +79,16 @@ function speedModule() {
 }
 
 function mainLogic() {
+
   document.onkeydown = function (event) {
     //debug
-    console.log("%c Event log:", "color: darkgreen; font-weight: bold", event);
-
+    //console.log("%c Event log:", "color: darkgreen; font-weight: bold", event);
     const leftMoveKey = event.keyCode === 37 || event.keyCode === 65;
     const rightMoveKey = event.keyCode === 39 || event.keyCode === 68;
     const downMoveKey = event.keyCode === 40 || event.keyCode === 83;
     const upMoveKey = event.keyCode === 38 || event.keyCode === 87;
     const teleportKey = event.keyCode === 82; //R
+    const fireKey = event.keyCode === 69 || event.keyCode === 32; //E, space
 
     if (animationFrame == 1) {
       animationFrame = 2;
@@ -91,40 +129,29 @@ function mainLogic() {
       setTimeout(function () {
         teleportModule();
       }, 1000);
+
+    
+     //shurikens
+    } else if (fireKey) {
+        console.log(`player poss: ${leftValue}, ${topValue}` )
+        //will shot from arm
+        //bullets.push({ left: leftValue + 34, top: topValue + 8 });
+        //will shit not from arm ))
+        bullets.push({ left: leftValue + 27, top: topValue + 75 });
+        console.log(bullets)
+        shootWhateverModule();
     }
   };
 }
 
-function instructionsMenu() {
-  function toggleBackdrop() {
-    backdropElement.classList.toggle("visible");
-  }
-  function presentInfoModal(event) {
-    const text = event.target.dataset.text;
-    toggleBackdrop();
-    infoModal = document.createElement("div");
-    infoModal.classList.add("modal");
-    infoModal.innerHTML = `
-    <h2>🥋 CONTROLS 🥋</h2>
-    <p>${text}</p>
-  `;
-    document.body.appendChild(infoModal);
-  }
-  function hideInfoModal() {
-    toggleBackdrop();
-    document.body.removeChild(infoModal);
-  }
-  for (const linkElement of modalLinkElements) {
-    linkElement.addEventListener("click", presentInfoModal);
-  }
-  backdropElement.addEventListener("click", hideInfoModal);
-}
+
 
 function init() {
   console.log("%c GAME STARTED 🤖", "color: darkgreen; font-weight: bold");
   speedModule();
-  instructionsMenu();
+  instructionsModule();
+  shootWhateverModule();
   mainLogic();
+ // setTimeout(init, 100);
 }
-
 init();

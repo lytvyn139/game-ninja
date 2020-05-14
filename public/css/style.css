@@ -19,15 +19,24 @@ body {
 }
 
 #ninja {
+  background-image: url("/public/img/down1.png");
   position: absolute;
   top: 180px;
   left: 920px;
-  background-image: url("/public/img/down1.png");
   width: 59px;
   height: 86px;
 }
 
-/* buttons */
+.bullet {
+  width: 15px;  /* width/height: must be exact pic size */
+  height: 15px;
+  position: absolute;
+  background-image: url("/public/img/shit.png"); 
+  /* background-image: url("/public/img/shuriken.png"); */
+}
+
+/*///////////////////////////////////////////
+////                buttons             ///*/  
 .btn,
 .info-modal {
   width: 40px;
@@ -67,7 +76,8 @@ body {
   opacity: 1;
 }
 
-/* speed control section */
+/*///////////////////////////////////////////
+////        speed control section      ///*/
 .speed-controls {
   display: flex;
   align-items: center;
@@ -94,10 +104,11 @@ body {
   margin: 0.5em;
 }
 
-/* POPUP */
+/*///////////////////////////////////////////
+////        pop up info section         ///*/
 .modal {
   position: fixed;
-  top: 30vh;
+  top: 10%;
   left: 30%;
   width: 40%;
   z-index: 100;
@@ -108,7 +119,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .modal h2 {
@@ -143,7 +154,8 @@ body {
   pointer-events: all;
 }
 
-/* media queries */
+/*///////////////////////////////////////////
+////          media queries            ///*/
 @media (max-width: 1250px) {
   body {
     background-image: url("/public/img/bg_1024.png");

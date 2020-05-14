@@ -10,38 +10,39 @@
     <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
   </head>
   <body>
-      
     <audio id="teleport-mp3">
       <source src="./public/mp3/teleport.mp3 " type="audio/mpeg" />
     </audio>
 
-    <div id="ninja"></div>
+      <div id="ninja"></div>
+      <div id="bullets"></div>
 
-    <div class="info-box">
-      <div class="speed-controls">
-        <p id="speed-info"></p>
-        <button class="btn" id="minus-btn">-</button>
-        <button class="btn" id="plus-btn">+</button>
-      </div>
-      <p id="stats">stats</p>
+      <div class="info-box">
+        <div class="speed-controls">
+          <p id="speed-info"></p>
+          <button class="btn" id="minus-btn">-</button>
+          <button class="btn" id="plus-btn">+</button>
+        </div>
+        <p id="stats">stats</p>
 
-      <div class="speed-controls-logo">
-        <h1>DOJO</h1>
-        <div id="backdrop"></div>
-        <p>
-          <a href="#" data-text="
-                  move ⬆️/W <br>
-                  move ➡️/D <br>
-                  move ⬇️/S <br>
-                  move ⬅️/A <br>
-                  increase speed 🐆 = click on + <br>
-                  decrease speed 🐌 = click on - <br>
-                  cast teleport 💥 = R <br>
-                  "
-            class="info-modal">help</a>
-        </p>
+        <div class="speed-controls-logo">
+          <h1>DOJO</h1>
+          <div id="backdrop"></div>
+          <p>
+            <a href="#" data-text="
+                    move ⬆️/W <br>
+                    move ➡️/D <br>
+                    move ⬇️/S <br>
+                    move ⬅️/A <br>
+                    increase speed 🐆 = click on ➕<br>
+                    decrease speed 🐌 = click on ➖<br>
+                    cast teleport 💥 = R <br>
+                    will shoot 💩/⭐  (depends on build) = E/Space <br>
+                    "
+              class="info-modal">help</a>
+          </p>
+        </div>
       </div>
-    </div>
 
     <script src="./public/js/app.js"></script>
   </body>
